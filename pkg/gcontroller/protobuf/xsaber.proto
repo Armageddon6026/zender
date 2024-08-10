@@ -1,0 +1,31 @@
+syntax = "proto3";
+package gcontroller;
+option go_package = "./model/grpc/protobuf/gcontroller";
+service ServicesFunc {
+    rpc InsertLoginServiceInfo (LoginServiceInfo) returns (Response);
+    rpc UpdateLoginServiceInfo (stream LoginServiceInfo) returns (Response);
+}
+
+message LoginServiceInfo{
+    string Uuid =1;
+    string Name=2;
+    string Ip=3;
+    repeated ScanFile ScanFiles=4;
+    repeated ScanApplication ScanApplications=5;
+}
+
+message ScanFile{
+    string Path=1;
+    int32 DataCount=2;
+    int64 LastTime=3;
+}
+
+message ScanApplication{
+    string Name=1;
+    int64 LastTime=2;
+}
+
+message Response{
+    int32 Code=1;
+    string Message=2;
+}
