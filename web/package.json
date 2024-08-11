@@ -1,0 +1,47 @@
+{
+  "name": "zender",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@iconify-json/fa6-brands": "^1.1.20",
+    "@iconify-json/ic": "^1.1.17",
+    "@microsoft/fetch-event-source": "^2.0.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "@unocss/eslint-config": "^0.61.4",
+    "js-cookie": "^3.0.5",
+    "pinia": "^2.1.7",
+    "prettier-eslint": "^16.3.0",
+    "typescript-eslint": "^8.0.0-alpha.10",
+    "vue": "^3.4.31",
+    "vue-eslint-parser": "^9.4.3",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.10.3",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.14.10",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint": "^9.7.0",
+    "eslint-plugin-vue": "^9.27.0",
+    "npm-run-all2": "^6.2.2",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.3",
+    "unocss": "^0.61.4",
+    "vite": "^5.3.4",
+    "vue-tsc": "^2.0.26"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Project Zender",
+  "short_name": "Zender",
+  "theme_color": "#00bd7e",
+  "background_color": "#00bd7e",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ]
+}
