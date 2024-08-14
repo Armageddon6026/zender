@@ -19,7 +19,7 @@ func NewEventController(loginServiceManager *notification.LoginServiceManager) C
 }
 
 func (e *EventController) ListenLoginServicesNotification(ctx *gin.Context) {
-	theClientChan := make(chan string, 0)
+	theClientChan := make(chan string)
 	e.loginServiceManager.RegisterClient(theClientChan)
 	closeNotify := ctx.Writer.CloseNotify()
 	for {

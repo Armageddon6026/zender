@@ -50,7 +50,6 @@ func New(config *common.SystemConfig) *server {
 	eventController := controller.NewEventController(noti)
 	grpcController := gcontroller.New(noti, repo.LoginService(), repo.Service())
 
-	gin.SetMode(gin.DebugMode)
 	engine := gin.Default()
 	engine.SetTrustedProxies(nil)
 	engine.Use(

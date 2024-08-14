@@ -12,6 +12,8 @@
 *.so
 *.dylib
 *.cmd
+# Binaries for zender
+zender
 
 # Test binary, built with `go test -c`
 *.test
@@ -53,6 +55,4 @@ go.work
 # Ignore code-workspaces
 *.code-workspace
 
-# cert file
-/certs/*
 # End of https://www.toptal.com/developers/gitignore/api/go,visualstudiocode

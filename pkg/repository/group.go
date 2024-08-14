@@ -24,7 +24,7 @@ func (g *groupRepository) SelectGroups() (model.GroupList, error) {
 		return nil, err
 	}
 	if len(res) <= 0 {
-		return nil, errors.New("Wrong query")
+		return nil, errors.New("wrong query")
 	}
 	return res, nil
 }
@@ -37,7 +37,7 @@ func (g *groupRepository) SelectGroupById(id int) (*model.GroupInfo, error) {
 		return nil, err
 	}
 	if len(res) != 1 {
-		return nil, errors.New("Wrong id")
+		return nil, errors.New("wrong id")
 	}
 	return &res[0], nil
 }
@@ -50,7 +50,7 @@ func (g *groupRepository) SelectGroupByName(name string) (*model.GroupInfo, erro
 		return nil, err
 	}
 	if len(res) != 1 {
-		return nil, errors.New("Wrong name")
+		return nil, errors.New("wrong name")
 	}
 	return &res[0], nil
 }
@@ -62,7 +62,7 @@ func (g *groupRepository) InsertGroup(data *model.GroupInfo) error {
 		return err
 	}
 	if affectedNum == 0 {
-		return errors.New("No group Insert")
+		return errors.New("no group Insert")
 	}
 
 	return nil
@@ -76,7 +76,7 @@ func (g *groupRepository) UpdateGroupById(id int, data *model.GroupUpdate) error
 		return err
 	}
 	if affectedNum == 0 {
-		return errors.New("No group Update")
+		return errors.New("no group Update")
 	}
 
 	return nil
@@ -90,7 +90,7 @@ func (g *groupRepository) DeleteGroupById(id int) error {
 		return err
 	}
 	if affectedNum == 0 {
-		return errors.New("No group Delete")
+		return errors.New("no group Delete")
 	}
 
 	return nil

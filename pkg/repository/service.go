@@ -25,7 +25,7 @@ func (s *serviceRepository) SelectServiceByAuth(uuid, privateKey string) (*model
 		return nil, err
 	}
 	if len(res) != 1 {
-		return nil, errors.New("Wrong uuid & privateKey")
+		return nil, errors.New("wrong uuid & privateKey")
 	}
 
 	return &res[0], nil
@@ -49,7 +49,7 @@ func (s *serviceRepository) SelectServicesByGroup(group int) (model.ServciceList
 		return nil, err
 	}
 	if len(res) <= 0 {
-		return nil, errors.New("Wrong group")
+		return nil, errors.New("wrong group")
 	}
 
 	return res, nil
@@ -62,7 +62,7 @@ func (s *serviceRepository) InsertService(data *model.ServiceInsert) error {
 		return err
 	}
 	if affectedNum == 0 {
-		return errors.New("No Service Insert")
+		return errors.New("no Service Insert")
 	}
 
 	return nil
@@ -76,7 +76,7 @@ func (s *serviceRepository) UpdaateServiceByUuid(uuid string, data *model.Servic
 		return err
 	}
 	if affectedNum == 0 {
-		return errors.New("No Service Update")
+		return errors.New("no Service Update")
 	}
 
 	return nil
@@ -90,7 +90,7 @@ func (s *serviceRepository) DeleteServiceByUuid(uuid string) error {
 		return err
 	}
 	if affectedNum == 0 {
-		return errors.New("No Service Delete")
+		return errors.New("no Service Delete")
 	}
 
 	return nil

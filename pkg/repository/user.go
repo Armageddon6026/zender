@@ -35,7 +35,7 @@ func (u *userRpository) SelectUserByAuth(account, password string) (*model.UserI
 		return nil, err
 	}
 	if len(res) != 1 {
-		return nil, errors.New("Wrong account or password")
+		return nil, errors.New("wrong account or password")
 	}
 	return &res[0], nil
 }
@@ -48,7 +48,7 @@ func (u *userRpository) SelectUserByAccount(account string) (*model.UserInfo, er
 		return nil, err
 	}
 	if len(res) != 1 {
-		return nil, errors.New("Wrong user")
+		return nil, errors.New("wrong user")
 	}
 	return &res[0], nil
 }

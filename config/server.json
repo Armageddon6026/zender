@@ -1,5 +1,5 @@
 {
-	"addr":"localhost:8081",
+	"addr":":8081",
 	"webroot":"./web/dist",
 	"db": {
 		"addr": "127.0.0.1:3306",

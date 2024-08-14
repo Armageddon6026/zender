@@ -133,10 +133,10 @@ func Exec(Conn *SqlCommand) (int64, error) {
 		return 0, err
 	}
 	stmt, err := db.Prepare(Conn.sqlCommand)
-	defer stmt.Close()
 	if err != nil {
 		return 0, err
 	}
+	defer stmt.Close()
 	res, err := stmt.Exec(Conn.queryClauseArgs...)
 	if err != nil {
 		return 0, err
