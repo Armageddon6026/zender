@@ -12,6 +12,8 @@
 *.so
 *.dylib
 *.cmd
+*.conf
+
 # Binaries for zender
 zender
 
