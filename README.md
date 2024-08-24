@@ -126,7 +126,10 @@ npm run dev
 Before run,You sould check `vite.config.mts` first
 >See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-Explore in http://localhost:5173
+View Web
+- Explore in http://localhost:5173 for dev (use `vite` server)
+
+- Explore in https://localhost:8081 for realse (use `zender` server)
 
 Default admin account/password is `Zak/12345`
 
