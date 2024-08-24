@@ -71,7 +71,7 @@ Before starting, you should already install [golang](https://go.dev/), [docker](
 Env:
 - golang (1.22 or later)
 
->You can change server and database setting in coniig/server.json
+>You can change server and database setting in conig/server.json
 
 ```bash
 go mod download
@@ -96,7 +96,7 @@ curl -v -u 'account:password' https://localhost:8081/pai/v1/login
 Response as follows, set token in cookie with `x-access-token` Header
 ```json
 {
-    "x-access-token" = "my-jwt-token"
+    "x-access-token" : "my-jwt-token"
 }
 ```
 
@@ -126,7 +126,7 @@ npm run dev
 Before run,You sould check `vite.config.mts` first
 >See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-Explore in http://localhost:8081
+Explore in http://localhost:5173
 
 Default admin account/password is `Zak/12345`
 
