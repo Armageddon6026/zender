@@ -57,7 +57,7 @@ Frontend support features:
 
 TODOs
 - [ ] Redis cache
-- [ ] Jwt balck list 
+- [ ] Jwt black list 
 - [ ] Request rate limit
 - [ ] Oath2 Authentication
 - [ ] Mobile UI 
@@ -89,7 +89,7 @@ run locally
 See more api in https://localhost:8081/document
 
 Login, get jwt token
-> Only admin user can access any apis, other user need create RBAC policy
+
 ```bash
 curl -v -u 'account:password' https://localhost:8081/pai/v1/login
 ```
