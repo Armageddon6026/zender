@@ -1,8 +1,8 @@
 # Zender
 
 [![Golang](https://img.shields.io/badge/golang-_1.22-blue)](https://go.dev/)
-[![NodeJs](https://img.shields.io/badge/npm-_22.1.0-orange)](https://nodejs.org)
-[![workflows](https://img.shields.io/badge/licencs-_MIT-greenyellow)](https://github.com/Armageddon6026/zender/blob/master/LICENSE)
+[![NodeJs](https://img.shields.io/badge/node-_22.1.0-orange)](https://nodejs.org)
+[![workflows](https://img.shields.io/badge/license-_MIT-greenyellow)](https://github.com/Armageddon6026/zender/blob/master/LICENSE)
 
 <img src="web/public/logo.png" width="50px">
 
@@ -39,23 +39,25 @@ Zender is a monitoring system written in Go + Vue3, providing simple and user-fr
 
 ## Features
 Server support features:
-- Restful api, write by gin
+- Restful api, wirtten by [gin](https://gin-gonic.com/)
 - MVC structure
-- Mariadb storage, via self-made orm libirary
+- [Mariadb](https://mariadb.org/) storage, via self-made orm libirary
 - Graceful shutdown
 - Authentication, support jwt
-- GRPC supported
+- [GRPC](https://grpc.io/) supported
 - SSE supported
-- Container application management, support docker/podman
+- Containerization supported by docker / podman
 
 Frontend support features:
-- Vue3 supported
-- Unocss CSS
-- Build with vite
-- Basic Login
+- [Vue3](https://vuejs.org/) supported
+- [Pinia](https://pinia.vuejs.org/)🍍 for store library
+- [Unocss](https://unocss.dev/) CSS
+- SPA supported by [vue-router](https://router.vuejs.org/)
+- Build with [vite](https://vitejs.dev/)
+- [PWA](https://developer.mozilla.org/zh-TW/docs/Web/Progressive_web_apps) supported
 - SSE supported,via [fetch-event-source](https://github.com/Azure/fetch-event-source)
 
-TODOs
+TODOs:
 - [ ] Redis cache
 - [ ] Jwt black list 
 - [ ] Request rate limit
@@ -65,78 +67,68 @@ TODOs
 - [ ] document page
 
 ## Get started
-Before starting, you should already install [golang](https://go.dev/), [docker](https://docs.docker.com/engine/install/)/[podman](https://podman.io/docs/installation) , [mariadb](https://mariadb.org/) and [nodejs](https://nodejs.org/en/download/) in your develop env.
+Before starting, you should already install [golang](https://go.dev/), [mariadb](https://mariadb.org/) and [nodejs](https://nodejs.org/en/download/) in your develop env.
 ### Build & Run server
 
 Env:
 - golang (1.22 or later)
+- mariadb (11 or later)
 
->You can change server and database setting in conig/server.json
-
+Build:
 ```bash
 go mod download
 go build
 ```
+Before run:
+- You can change the server and the database setting in `conig/server.json`
+- You can build the database automatically by script in `script/database.sql`
 
-run locally
+Run locally:
 ```bash
 ./zender
 ```
 
-> You can build database by script in script/database.sql
 
 ### Test api
-See more api in https://localhost:8081/document
+>See more api in https://localhost:8081/document
 
-Login, get jwt token
-
-```bash
-curl -v -u 'account:password' https://localhost:8081/pai/v1/login
-```
-Response as follows, set token in cookie with `x-access-token` Header
-```json
-{
-    "x-access-token" : "my-jwt-token"
-}
-```
-
-Get users
-```bash
-token="my-jwt-token"
-curl --cookie "x-access-tokeny={ my-jwt-token }" "https://localhost:8081/pai/v1/user"
-```
 
 ### Build & Run UI
 
 Env:
 - node (20 or later)
 
-Build ui
+Build ui:
 ```bash
 cd web
 npm install --legacy-peer-deps
 npm run build
 ```
+Before run ui:
 
-Run ui with vite
+You sould check `web/vite.config.mts` first
+>See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+Run ui with vite:
 ```bash
 cd web
 npm run dev 
 ```
-Before run,You sould check `vite.config.mts` first
->See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 View Web
 - Explore in http://localhost:5173 for dev (use `vite` server)
 
-- Explore in https://localhost:8081 for realse (use `zender` server)
+- Explore in https://localhost:8081 for release (use `zender` server)
 
-Default admin account/password is `Zak/12345`
+Default user account/password is `Zak/12345`
 
 
-### Container build & Run
+## Containerization
 
-run server in docker/podman
+Zender is supported with [docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
+
+### Build & Run server in container
+
 ```bash
 # build image
 docker(podman) build -t zender:latest .
