@@ -99,7 +99,7 @@ func (s *server) Run() {
 	s.cron.Task.Start()
 
 	go func() {
-		err := s.http.ListenAndServeTLS(common.SSL_CERT_PATH, common.SSL_PRIVATEKEY_PATH)
+		err := s.http.ListenAndServe()
 		if err != nil {
 			log.Fatal(err)
 		}
