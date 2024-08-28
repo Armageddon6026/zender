@@ -21,7 +21,6 @@ FROM alpine:latest AS release
 ENV GIN_MODE=release
 COPY certs/ certs/
 COPY config/ config/
-COPY web/dist web/dist
 COPY --from=vue-builder /vue3/dist/ web/dist/
 COPY --from=go-builder /golang/zender /
 ENTRYPOINT ["/zender"]
