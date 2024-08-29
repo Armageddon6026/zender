@@ -13,6 +13,7 @@
 *.dylib
 *.cmd
 *.conf
+*.env
 
 # Binaries for zender
 zender
@@ -31,6 +32,7 @@ go.work
 ### Go Patch ###
 /vendor/
 /Godeps/
+/certs/
 
 ### VisualStudioCode ###
 .vscode/*

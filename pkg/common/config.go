@@ -7,7 +7,7 @@ import (
 )
 
 type SystemConfig struct {
-	Addr    string   `json:"addr,omitempty"`
+	Port    string   `json:"port,omitempty"`
 	WebRoot string   `json:"webroot,omitempty"`
 	Db      Dbconfig `json:"db,omitempty"`
 }
@@ -16,7 +16,6 @@ type Dbconfig struct {
 	Addr     string `json:"addr,omitempty"`
 	User     string `json:"user,omitempty"`
 	Password string `json:"password,omitempty"`
-	DBName   string `json:"dbname,omitempty"`
 }
 
 func GetSystemConfig() (*SystemConfig, error) {
@@ -25,6 +24,9 @@ func GetSystemConfig() (*SystemConfig, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	setDbConfigByEnv(config)
+
 	return config, nil
 }
 
@@ -43,4 +45,16 @@ func readJsonFromFile(path string, c *SystemConfig) error {
 		return err
 	}
 	return nil
+}
+
+func setDbConfigByEnv(c *SystemConfig) {
+	if DB_ADDR != "" {
+		c.Db.Addr = DB_ADDR
+	}
+	if DB_PASSWORD != "" {
+		c.Db.Password = DB_PASSWORD
+	}
+	if DB_USER != "" {
+		c.Db.User = DB_USER
+	}
 }

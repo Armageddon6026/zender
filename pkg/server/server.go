@@ -35,7 +35,7 @@ func New(config *common.SystemConfig) *server {
 		User:                 config.Db.User,
 		Passwd:               config.Db.Password,
 		Addr:                 config.Db.Addr,
-		DBName:               config.Db.DBName,
+		DBName:               "zender",
 		Net:                  "tcp",
 		ParseTime:            true,
 		Loc:                  time.Local,
@@ -55,7 +55,7 @@ func New(config *common.SystemConfig) *server {
 	engine.Use(
 		middleware.GrpcRequest(grpcController), // GRPC
 		middleware.CORSMiddleware(),
-		middleware.SecureMiddleware(config.Addr),
+		middleware.SecureMiddleware(),
 		static.Serve("/", static.LocalFile(config.WebRoot, true)), // SPA
 	)
 
@@ -78,7 +78,7 @@ func New(config *common.SystemConfig) *server {
 		engine.HandleContext(ctx)
 	})
 	srv := &http.Server{
-		Addr:    config.Addr,
+		Addr:    ":" + config.Port,
 		Handler: engine,
 	}
 
