@@ -14,7 +14,7 @@ func init() {
 		JWT_SECRET = theJwtSecret
 	}
 	if addr := os.Getenv("DB_ADDR"); addr != "" {
-		DB_USER = addr
+		DB_ADDR = addr
 	}
 	if password := os.Getenv("DB_PASSWORD"); password != "" {
 		DB_PASSWORD = password
