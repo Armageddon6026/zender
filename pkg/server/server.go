@@ -16,6 +16,8 @@ import (
 	"github.com/Armageddon6026/zender/pkg/middleware"
 	"github.com/Armageddon6026/zender/pkg/notification"
 	"github.com/Armageddon6026/zender/pkg/repository"
+	"golang.org/x/net/http2"
+	"golang.org/x/net/http2/h2c"
 
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
@@ -77,9 +79,10 @@ func New(config *common.SystemConfig) *server {
 		ctx.Request.URL.Path = "/"
 		engine.HandleContext(ctx)
 	})
+
 	srv := &http.Server{
 		Addr:    ":" + config.Port,
-		Handler: engine,
+		Handler: h2c.NewHandler(engine, &http2.Server{}), //h2c support
 	}
 
 	// Cron job
