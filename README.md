@@ -89,10 +89,6 @@ Run locally:
 ```
 
 
-### Test api
->See more api in https://localhost:8081/document
-
-
 ### Build & Run UI
 
 Env:
